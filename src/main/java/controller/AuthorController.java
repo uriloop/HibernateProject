@@ -12,21 +12,19 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class AuthorController {
+
+
     private Connection connection;
 
     public AuthorController(Connection connection) {
         this.connection = connection;
     }
 
-
-
-    public void readAutorsFile(String filename) throws IOException {
-
-        List<Author> llistaAuthors= new ArrayList<>();
-
+    public ArrayList<Author> readAuthorsFile(String filename) throws IOException {
         int id;
         String name, year, country;
         boolean active;
+        ArrayList<Author> authorsList = new ArrayList();
 
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String linea = "";
@@ -38,12 +36,20 @@ public class AuthorController {
             country = str.nextToken();
             active = Boolean.parseBoolean(str.nextToken());
             // System.out.println(id + name + country + year + active);
-            llistaAuthors.add(new Author(id, name, country, year, active));
+            authorsList.add(new Author(id, name, country, year, active));
 
         }
         br.close();
 
+        return authorsList;
     }
+
+    public void printAutors(ArrayList<Author> authorsList) {
+        for (int i = 0; i < authorsList.size(); i++) {
+            System.out.println(authorsList.get(i).toString());
+        }
+    }
+
 
 
 }

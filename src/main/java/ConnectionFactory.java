@@ -46,7 +46,8 @@ public class ConnectionFactory {
 	 */
 	public void init() {
 		Properties prop = new Properties();
-		InputStream propStream = this.getClass().getClassLoader().getResourceAsStream("db.properties");
+		InputStream propStream = this.getClass().getClassLoader().getResourceAsStream("/home/dam2a-2021/IdeaProjects/HibernateProject/src/main/java/db.properties");
+
 
 		try {
 			prop.load(propStream);

@@ -49,7 +49,7 @@ public class Magazine implements Serializable {
         return articles.get(i);
 
     }
-    public List<Article> getArticles() {
+    public List<Article> getArticlesList() {
         return articles;
     }
     public void setArticles(List<Article> articles) {
